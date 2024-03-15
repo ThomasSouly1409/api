@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuck Norris</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div>
+    <img src="img\chuckNorris.png" alt="">
+    <img src="img\imagestorsenu.png" alt="">
+    <img class="meme" src="img\meme.png" alt="">
+  </div>
+    <div id="hero">
+        <h1>Chuck Norris Joke</h1>
+        <p id="blague"></p>
+        <button onclick="rechercheBlague()">Putaclic</button>
+    </div>
+    <div>
+      <img src="img\chuckNorris.png" alt="">
+      <img src="img\imagestorsenu.png" alt="">
+      <img class="meme" src="img\meme.png" alt="">
+    </div>
+    <script>
+        function rechercheBlague() {
+            fetch('https://api.chucknorris.io/jokes/random')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('blague').innerText = data.value;
+                })
+                .catch(error => {
+                    console.error('Erreur pas de blague:', error);
+                });
+                
+        }
+    </script>
+</body>
+</html>
